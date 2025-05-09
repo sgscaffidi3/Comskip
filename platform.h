@@ -74,7 +74,7 @@ typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;
 typedef unsigned int uint32_t;
 typedef unsigned __int64 uint64_t;
-#if !defined(HARDWARE_DECODE) && !defined(__MINGW64__)
+#if !defined(HARDWARE_DECODE) && !defined(__MINGW64__) && !defined(__MINGW32__)
 #include <compat/w32pthreads.h>  // Is already defined in ffmpeg
 #endif
 
