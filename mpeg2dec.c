@@ -332,7 +332,7 @@ extern void dump_audio (char *start, char *end);
 extern void	Debug(int level, char* fmt, ...);
 extern void dump_video_start(void);
 extern void dump_audio_start(void);
-void file_open();
+void open_file();
 int DetectCommercials(int, double);
 int BuildMasterCommList(void);
 FILE* LoadSettings(int argc, char ** argv);
@@ -1114,7 +1114,7 @@ void DecodeOnePicture(FILE * f, double pts)
 
 //    int64_t pack_pts=0, comp_pts=0, pack_duration=0;
 
-    file_open();
+    open_file();
     is = global_video_state;
 
     reviewing = 1;
@@ -1960,7 +1960,7 @@ static void log_callback_report(void *ptr, int level, const char *fmt, va_list v
  * av_dict_free(&options);
  */
 
-void file_open()
+void open_file()
 {
     VideoState *is;
     int subtitle_index= -1, audio_index= -1, video_index = -1;
@@ -2317,7 +2317,7 @@ int main (int argc, char ** argv)
 //        av_log_set_level(AV_LOG_WARNING);
         in_file = LoadSettings(argc, argv);
 
-        file_open();
+        open_file();
 
 
 
@@ -2358,7 +2358,7 @@ again:
                 {
                     is->seek_req = 0;
                     file_close();
-                    file_open();
+                    open_file();
 
                     DUMP_CLOSE
                     DUMP_OPEN
@@ -2469,7 +2469,7 @@ nextpacket:
                         Debug( 9,"Retry target pos=%" PRId64 ", pts=%" PRId64 "\n", last_packet_pos, last_packet_pts);
 
                         if (selftest == 0) Sleep(4000L);
-                        file_open();
+                        open_file();
                         Set_seek(is, retry_target);
 
                         retries++;
