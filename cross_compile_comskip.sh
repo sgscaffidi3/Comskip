@@ -17,8 +17,7 @@ cc_path="./sandbox/cross_compilers/mingw-w64-i686"
 
 echo "Building Argtable2"
 if [[ ! -d argtable2-13 ]]; then
-  wget https://downloads.sourceforge.net/project/argtable/argtable/argtable-2.13/argtable2-13.tar.gz || exit 1
-  tar -xf argtable2-13.tar.gz || exit 1
+  git clone https://github.com/sgscaffidi3/argtable2-13.git
 fi
 cd argtable2-13
 export CFLAGS="-I../${cc_path}/i686-w64-mingw32/include"
