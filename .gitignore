@@ -11,6 +11,7 @@
 /votest.exe
 /*.dSYM
 /ccextratorwin/.dirstamp
+/sandbox/
 
 # Autotools stuff
 .deps
